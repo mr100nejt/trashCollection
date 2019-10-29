@@ -168,6 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +178,26 @@
     <Compile Include="Migrations\201910281941466_IntialMigration.cs" />
     <Compile Include="Migrations\201910281941466_IntialMigration.Designer.cs">
       <DependentUpon>201910281941466_IntialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910282019102_SecondMigration.cs" />
+    <Compile Include="Migrations\201910282019102_SecondMigration.Designer.cs">
+      <DependentUpon>201910282019102_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910291206345_AddedForeighnKey.cs" />
+    <Compile Include="Migrations\201910291206345_AddedForeighnKey.Designer.cs">
+      <DependentUpon>201910291206345_AddedForeighnKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910291500047_add-migration AddedDateTime.cs" />
+    <Compile Include="Migrations\201910291500047_add-migration AddedDateTime.Designer.cs">
+      <DependentUpon>201910291500047_add-migration AddedDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910291609491_FinishedRoles.cs" />
+    <Compile Include="Migrations\201910291609491_FinishedRoles.Designer.cs">
+      <DependentUpon>201910291609491_FinishedRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910291933526_AddedSpecialPickup.cs" />
+    <Compile Include="Migrations\201910291933526_AddedSpecialPickup.Designer.cs">
+      <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -242,6 +264,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customer\CreateCustomer.cshtml" />
+    <Content Include="Views\Employee\CreateEmployee.cshtml" />
+    <Content Include="Views\Customer\CustomerIndex.cshtml" />
+    <Content Include="Views\Customer\EditCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -262,6 +288,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910281941466_IntialMigration.resx">
       <DependentUpon>201910281941466_IntialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910282019102_SecondMigration.resx">
+      <DependentUpon>201910282019102_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910291206345_AddedForeighnKey.resx">
+      <DependentUpon>201910291206345_AddedForeighnKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910291500047_add-migration AddedDateTime.resx">
+      <DependentUpon>201910291500047_add-migration AddedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910291609491_FinishedRoles.resx">
+      <DependentUpon>201910291609491_FinishedRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910291933526_AddedSpecialPickup.resx">
+      <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
