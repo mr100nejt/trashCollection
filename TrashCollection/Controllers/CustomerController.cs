@@ -19,7 +19,7 @@ namespace TrashCollection.Controllers
         public ActionResult CustomerIndex()
         {
             string id = User.Identity.GetUserId();
-            Customer customer = context.Customers.Where(e => e.Id.ToString() == id).FirstOrDefault();
+            Customer customer = context.Customers.Where(e => e.ApplicationId == id).FirstOrDefault();
             
             return View(customer);
         }
@@ -39,24 +39,28 @@ namespace TrashCollection.Controllers
 
         // POST: Customer/Create
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult CreateCustomer(Customer customer)
         {
-            try
+          
             {
+
+                string id = User.Identity.GetUserId();
+                customer.ApplicationId = id;
+                customer.WeeklyPickupDay = Convert.ToDateTime("12/12/2007");
+                customer.EndDateForNoPickup = Convert.ToDateTime("12/12/2007"); 
+                customer.SpecialPickUp = Convert.ToDateTime("12/12/2007");
+                customer.StartDateForNoPickup = Convert.ToDateTime("12/12/2007");
                 context.Customers.Add(customer);
                 context.SaveChanges();
                 // TODO: Add insert logic here
 
                 return RedirectToAction("CustomerIndex");
             }
-            catch
-            {
-                return View();
-            }
+            
         }
 
         // GET: Customer/Edit/5
-        public ActionResult EditCustomer(int id)
+        public ActionResult EditPickupDates(int id)
         {
            Customer customer = context.Customers.Where(e => e.Id == id).FirstOrDefault();
             return View(customer);
@@ -64,16 +68,20 @@ namespace TrashCollection.Controllers
 
         // POST: Customer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id,Customer editedCustomer)
+        public ActionResult Edit(int editId,Customer editedCustomer)
         {
             try
             {
-                Customer customer = context.Customers.Where(e => e.Id == id).FirstOrDefault();
-                customer = editedCustomer;
+               string id = User.Identity.GetUserId();
+                Customer customer = context.Customers.Where(e => e.ApplicationId == id).FirstOrDefault();
+                customer.WeeklyPickupDay = editedCustomer.WeeklyPickupDay;
+                customer.EndDateForNoPickup = editedCustomer.EndDateForNoPickup;
+                customer.SpecialPickUp = editedCustomer.SpecialPickUp;
+                customer.StartDateForNoPickup = editedCustomer.StartDateForNoPickup; 
                 context.SaveChanges();
 
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CustomerIndex");
             }
             catch
             {

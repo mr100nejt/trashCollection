@@ -177,7 +177,7 @@ namespace TrashCollection.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("CreateCustomer", "CustomerController");
+                        return RedirectToAction("CreateCustomer", "Customer");
                     }
                     /////////////////////////////////////////////////////////////////////////
 

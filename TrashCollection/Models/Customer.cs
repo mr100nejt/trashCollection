@@ -20,6 +20,7 @@ namespace TrashCollection.Models
         public int Balance { get; set; }
         public int MonthleyCharge { get; set; }
         public bool PickupConfirmation { get; set; }
+        public DateTime WeeklyPickupDay { get; set; }
         public DateTime StartDateForNoPickup { get; set; }
         public DateTime EndDateForNoPickup { get; set; }
         public DateTime SpecialPickUp { get; set; }

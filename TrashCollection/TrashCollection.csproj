@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201910291933526_AddedSpecialPickup.Designer.cs">
       <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910301447206_ChangedDataType.cs" />
+    <Compile Include="Migrations\201910301447206_ChangedDataType.Designer.cs">
+      <DependentUpon>201910301447206_ChangedDataType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -264,10 +268,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customer\CreateCustomer.cshtml" />
     <Content Include="Views\Employee\CreateEmployee.cshtml" />
     <Content Include="Views\Customer\CustomerIndex.cshtml" />
-    <Content Include="Views\Customer\EditCustomer.cshtml" />
+    <Content Include="Views\Customer\CreateCustomer.cshtml" />
+    <Content Include="Views\Customer\EditPickupDates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910291933526_AddedSpecialPickup.resx">
       <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301447206_ChangedDataType.resx">
+      <DependentUpon>201910301447206_ChangedDataType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
