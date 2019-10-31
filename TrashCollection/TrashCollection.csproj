@@ -175,33 +175,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910281941466_IntialMigration.cs" />
-    <Compile Include="Migrations\201910281941466_IntialMigration.Designer.cs">
-      <DependentUpon>201910281941466_IntialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201910301840565_Fix.cs" />
+    <Compile Include="Migrations\201910301840565_Fix.Designer.cs">
+      <DependentUpon>201910301840565_Fix.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910282019102_SecondMigration.cs" />
-    <Compile Include="Migrations\201910282019102_SecondMigration.Designer.cs">
-      <DependentUpon>201910282019102_SecondMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291206345_AddedForeighnKey.cs" />
-    <Compile Include="Migrations\201910291206345_AddedForeighnKey.Designer.cs">
-      <DependentUpon>201910291206345_AddedForeighnKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291500047_add-migration AddedDateTime.cs" />
-    <Compile Include="Migrations\201910291500047_add-migration AddedDateTime.Designer.cs">
-      <DependentUpon>201910291500047_add-migration AddedDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291609491_FinishedRoles.cs" />
-    <Compile Include="Migrations\201910291609491_FinishedRoles.Designer.cs">
-      <DependentUpon>201910291609491_FinishedRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291933526_AddedSpecialPickup.cs" />
-    <Compile Include="Migrations\201910291933526_AddedSpecialPickup.Designer.cs">
-      <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910301447206_ChangedDataType.cs" />
-    <Compile Include="Migrations\201910301447206_ChangedDataType.Designer.cs">
-      <DependentUpon>201910301447206_ChangedDataType.cs</DependentUpon>
+    <Compile Include="Migrations\201910311422000_AddedEmployeeInfo.cs" />
+    <Compile Include="Migrations\201910311422000_AddedEmployeeInfo.Designer.cs">
+      <DependentUpon>201910311422000_AddedEmployeeInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,6 +252,8 @@
     <Content Include="Views\Customer\CustomerIndex.cshtml" />
     <Content Include="Views\Customer\CreateCustomer.cshtml" />
     <Content Include="Views\Customer\EditPickupDates.cshtml" />
+    <Content Include="Views\Customer\ViewSpecialPickupDate.cshtml" />
+    <Content Include="Views\Employee\EmployeeIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,26 +272,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910281941466_IntialMigration.resx">
-      <DependentUpon>201910281941466_IntialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910301840565_Fix.resx">
+      <DependentUpon>201910301840565_Fix.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910282019102_SecondMigration.resx">
-      <DependentUpon>201910282019102_SecondMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291206345_AddedForeighnKey.resx">
-      <DependentUpon>201910291206345_AddedForeighnKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291500047_add-migration AddedDateTime.resx">
-      <DependentUpon>201910291500047_add-migration AddedDateTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291609491_FinishedRoles.resx">
-      <DependentUpon>201910291609491_FinishedRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291933526_AddedSpecialPickup.resx">
-      <DependentUpon>201910291933526_AddedSpecialPickup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910301447206_ChangedDataType.resx">
-      <DependentUpon>201910301447206_ChangedDataType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910311422000_AddedEmployeeInfo.resx">
+      <DependentUpon>201910311422000_AddedEmployeeInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

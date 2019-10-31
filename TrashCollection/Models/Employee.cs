@@ -9,10 +9,12 @@ namespace TrashCollection.Models
 {
     public class Employee
     {
+       
         [Key]
         public int Id { get; set; }
         public int ZipCode { get; set; }
-       
+        public List<Customer> ZipList { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

@@ -10,10 +10,13 @@ namespace TrashCollection.Controllers
 {
     public class CustomerController : Controller
     {
+      
         ApplicationDbContext context;
+       
         public CustomerController()
         {
             context = new ApplicationDbContext();
+
         }
         // GET: Customer
         public ActionResult CustomerIndex()
@@ -25,15 +28,20 @@ namespace TrashCollection.Controllers
         }
 
         // GET: Customer/Details/5
-        public ActionResult Details(int id)
+        public ActionResult ViewSpecialPickupDate()
         {
-            return View();
+            string id = User.Identity.GetUserId();
+            Customer customer = context.Customers.Where(e => e.ApplicationId == id).FirstOrDefault();
+            return View(customer);
         }
 
         // GET: Customer/Create
         public ActionResult CreateCustomer()
         {
-            Customer customer = new Customer(); 
+            Customer customer = new Customer();
+           
+          
+            
             return View(customer);
         }
 
