@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,9 +18,11 @@ namespace TrashCollection.Controllers
         }
 
         // GET: Employee
-        public ActionResult Index()
+        public ActionResult EmployeeIndex()
         {
-            return View();
+            string id = User.Identity.GetUserId();
+            var employee = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.ZipList);
+            return View(employee);
         }
 
         // GET: Employee/Details/5
@@ -32,18 +35,20 @@ namespace TrashCollection.Controllers
         public ActionResult Create()
         {
             Employee employee = new Employee(); 
+            
             return View(employee);
         }
 
         // POST: Employee/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Employee employee)
         {
             try
             {
-                // TODO: Add insert logic here
+                context.Employees.Add(employee);
+                context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("EmployeeIndex");
             }
             catch
             {
