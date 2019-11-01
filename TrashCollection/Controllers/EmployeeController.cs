@@ -20,19 +20,17 @@ namespace TrashCollection.Controllers
         }
 
         // GET: Employee
-        public ActionResult EmployeeIndex()
+        public ActionResult EmployeeIndex(string searchDay)
         {
-            string id = User.Identity.GetUserId();
-            Employee employee = context.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
-            var employeeZip = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.ZipList).FirstOrDefault();
-            var customersToAdd = context.Customers.Where(e => e.ZipCode == employee.ZipCode).AsEnumerable();
+           
+            
+                string id = User.Identity.GetUserId();
+                Employee employee = context.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
+                
+                var customersToAdd = context.Customers.Where(e => e.ZipCode == employee.ZipCode ).AsEnumerable();
+            
 
-            foreach(var item in customersToAdd)
-            {
-                employee.ZipList.Add(item);
-            }
-
-            return View(employeeZip);
+            return View(customersToAdd);
         }
 
         // GET: Employee/Details/5
@@ -40,15 +38,11 @@ namespace TrashCollection.Controllers
         {
             string id = User.Identity.GetUserId();
             var curentDate = DateTime.Today;
-            var customerList = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.customerListByDay).FirstOrDefault();
-          var customersToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).AsEnumerable(); 
-         
-           foreach(var item in customersToAdd)
-            {
-                customerList.Add(item);
-            }
            
-            return View(customerList);
+          var customersToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).AsEnumerable(); new google
+         
+         
+            return View(customersToAdd);
         }
 
         // GET: Employee/Create

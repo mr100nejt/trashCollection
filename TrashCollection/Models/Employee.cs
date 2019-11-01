@@ -13,8 +13,7 @@ namespace TrashCollection.Models
         [Key]
         public int Id { get; set; }
         public int ZipCode { get; set; }
-        public List<Customer> ZipList { get; set; }
-        public List<Customer> customerListByDay { get; set; }  
+        public string SpecialPickUpDay { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }

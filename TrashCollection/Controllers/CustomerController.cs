@@ -56,7 +56,7 @@ namespace TrashCollection.Controllers
                 customer.ApplicationId = id;
                 customer.WeeklyPickupDay = Convert.ToDateTime("12/12/2007");
                 customer.EndDateForNoPickup = Convert.ToDateTime("12/12/2007"); 
-                customer.SpecialPickUp = Convert.ToDateTime("12/12/2007");
+               
                 customer.StartDateForNoPickup = Convert.ToDateTime("12/12/2007");
                 context.Customers.Add(customer);
                 context.SaveChanges();

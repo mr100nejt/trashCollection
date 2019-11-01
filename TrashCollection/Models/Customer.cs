@@ -24,7 +24,7 @@ namespace TrashCollection.Models
         public DateTime WeeklyPickupDay { get; set; }
         public DateTime StartDateForNoPickup { get; set; }
         public DateTime EndDateForNoPickup { get; set; }
-        public DateTime SpecialPickUp { get; set; }
+        public string SpecialPickUp { get; set; }
         [ ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

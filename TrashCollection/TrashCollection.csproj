@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201911011326590_AddedListToSortByDay.Designer.cs">
       <DependentUpon>201911011326590_AddedListToSortByDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911011629579_ChangedSpecialPickUpDataType.cs" />
+    <Compile Include="Migrations\201911011629579_ChangedSpecialPickUpDataType.Designer.cs">
+      <DependentUpon>201911011629579_ChangedSpecialPickUpDataType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -259,6 +263,7 @@
     <Content Include="Views\Customer\ViewSpecialPickupDate.cshtml" />
     <Content Include="Views\Employee\EmployeeIndex.cshtml" />
     <Content Include="Views\Employee\PickUpConfirmation.cshtml" />
+    <Content Include="Views\Employee\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911011326590_AddedListToSortByDay.resx">
       <DependentUpon>201911011326590_AddedListToSortByDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011629579_ChangedSpecialPickUpDataType.resx">
+      <DependentUpon>201911011629579_ChangedSpecialPickUpDataType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
