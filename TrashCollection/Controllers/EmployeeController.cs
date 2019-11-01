@@ -39,7 +39,7 @@ namespace TrashCollection.Controllers
             string id = User.Identity.GetUserId();
             var curentDate = DateTime.Today;
            
-          var customersToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).AsEnumerable(); new google
+          var customersToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).AsEnumerable();
          
          
             return View(customersToAdd);
