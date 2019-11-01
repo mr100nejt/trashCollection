@@ -12,9 +12,11 @@ namespace TrashCollection.Controllers
     public class EmployeeController : Controller
     {
         ApplicationDbContext context;
+        ApplicationDbContext zipList;
         public EmployeeController()
         {
             context = new ApplicationDbContext();
+            zipList = new ApplicationDbContext(); 
         }
 
         // GET: Employee
@@ -23,11 +25,13 @@ namespace TrashCollection.Controllers
             string id = User.Identity.GetUserId();
             Employee employee = context.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
             var employeeZip = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.ZipList).FirstOrDefault();
-            List<Customer> customersToAdd = context.Customers.Where(e => e.ZipCode == employee.ZipCode).ToList();
-            for (int i = 0; i < customersToAdd.Count(); i++)
+            var customersToAdd = context.Customers.Where(e => e.ZipCode == employee.ZipCode).AsEnumerable();
+
+            foreach(var item in customersToAdd)
             {
-                employeeZip.Add(customersToAdd[i]);
+                employee.ZipList.Add(item);
             }
+
             return View(employeeZip);
         }
 
@@ -37,18 +41,18 @@ namespace TrashCollection.Controllers
             string id = User.Identity.GetUserId();
             var curentDate = DateTime.Today;
             var customerList = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.customerListByDay).FirstOrDefault();
-            List<Customer> customerToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).ToList(); 
+          var customersToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).AsEnumerable(); 
          
-            for(int i =0; i < customerToAdd.Count(); i++)
+           foreach(var item in customersToAdd)
             {
-                customerList.Add(customerToAdd[i]);
+                customerList.Add(item);
             }
            
             return View(customerList);
         }
 
         // GET: Employee/Create
-        public ActionResult Create()
+        public ActionResult CreateEmployee()
         {
             Employee employee = new Employee(); 
             
@@ -57,10 +61,12 @@ namespace TrashCollection.Controllers
 
         // POST: Employee/Create
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        public ActionResult CreateEmployee(Employee employee)
         {
             try
             {
+                string id = User.Identity.GetUserId();
+                employee.ApplicationId = id; 
                 context.Employees.Add(employee);
                 context.SaveChanges();
 
