@@ -21,14 +21,30 @@ namespace TrashCollection.Controllers
         public ActionResult EmployeeIndex()
         {
             string id = User.Identity.GetUserId();
-            var employee = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.ZipList);
-            return View(employee);
+            Employee employee = context.Employees.Where(e => e.ApplicationId == id).FirstOrDefault();
+            var employeeZip = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.ZipList).FirstOrDefault();
+            List<Customer> customersToAdd = context.Customers.Where(e => e.ZipCode == employee.ZipCode).ToList();
+            for (int i = 0; i < customersToAdd.Count(); i++)
+            {
+                employeeZip.Add(customersToAdd[i]);
+            }
+            return View(employeeZip);
         }
 
         // GET: Employee/Details/5
-        public ActionResult Details(int id)
+        public ActionResult CustomersByDay()
         {
-            return View();
+            string id = User.Identity.GetUserId();
+            var curentDate = DateTime.Today;
+            var customerList = context.Employees.Where(e => e.ApplicationId == id).Select(e => e.customerListByDay).FirstOrDefault();
+            List<Customer> customerToAdd = context.Customers.Where(e => e.WeeklyPickupDay == curentDate).ToList(); 
+         
+            for(int i =0; i < customerToAdd.Count(); i++)
+            {
+                customerList.Add(customerToAdd[i]);
+            }
+           
+            return View(customerList);
         }
 
         // GET: Employee/Create
@@ -57,20 +73,24 @@ namespace TrashCollection.Controllers
         }
 
         // GET: Employee/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult PickUpConfirmation(int id)
         {
-            return View();
+            Customer customer = context.Customers.Where(e => e.Id == id).FirstOrDefault(); 
+            return View(customer);
         }
 
         // POST: Employee/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult PickUpConfirmationt(int id, Customer EditedCustomer)
         {
             try
             {
-                // TODO: Add update logic here
+                Customer customer = context.Customers.Where(e => e.Id == id).FirstOrDefault();
+                customer.PickupConfirmation = EditedCustomer.PickupConfirmation;
+                customer.MonthleyCharge = EditedCustomer.MonthleyCharge;
+                customer.Balance = EditedCustomer.Balance;
 
-                return RedirectToAction("Index");
+                return RedirectToAction("EmployeeIndex");
             }
             catch
             {

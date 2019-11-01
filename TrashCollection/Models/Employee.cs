@@ -14,6 +14,7 @@ namespace TrashCollection.Models
         public int Id { get; set; }
         public int ZipCode { get; set; }
         public List<Customer> ZipList { get; set; }
+        public List<Customer> customerListByDay { get; set; }  
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }

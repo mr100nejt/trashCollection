@@ -51,7 +51,7 @@ namespace TrashCollection.Controllers
         {
           
             {
-
+                
                 string id = User.Identity.GetUserId();
                 customer.ApplicationId = id;
                 customer.WeeklyPickupDay = Convert.ToDateTime("12/12/2007");

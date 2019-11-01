@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201910311422000_AddedEmployeeInfo.Designer.cs">
       <DependentUpon>201910311422000_AddedEmployeeInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911011326590_AddedListToSortByDay.cs" />
+    <Compile Include="Migrations\201911011326590_AddedListToSortByDay.Designer.cs">
+      <DependentUpon>201911011326590_AddedListToSortByDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -278,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910311422000_AddedEmployeeInfo.resx">
       <DependentUpon>201910311422000_AddedEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911011326590_AddedListToSortByDay.resx">
+      <DependentUpon>201911011326590_AddedListToSortByDay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
